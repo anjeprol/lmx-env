@@ -12,3 +12,15 @@ Java 8 and Maven
 
 ### Docker-compose
 Basic configuration to start the container.
+
+### build the image
+To build the image
+```docker
+docker build -t amk/lmx .
+```
+
+### command to start container
+To start the container
+```docker
+docker-compose up -d lmxserv
+```
