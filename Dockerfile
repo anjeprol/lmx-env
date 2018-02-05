@@ -4,8 +4,8 @@ LABEL "rating"="Five Stars" "class"="First Class" "maintainer"="Antonio Prado <a
 
 USER root
 RUN mkdir /lmx
-ADD maven.tar.gz /lmx
-ADD instalar-maven.sh /lmx
+ADD maven.tar.gz /
+ADD instalar-maven.sh /
 #ADD docker-entrypoint.sh /lmx
 
 RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list \
@@ -15,7 +15,7 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | te
     && /bin/echo /usr/bin/debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
     && /bin/echo /usr/bin/debconf shared/accepted-oracle-license-v1-1 seen true  | /usr/bin/debconf-set-selections \
     && apt-get update \
-    && apt-get install -y git && nano \
+    && apt-get install -y git \
     && apt-get install -y oracle-java8-installer oracle-java8-unlimited-jce-policy oracle-java8-set-default \
 
 
