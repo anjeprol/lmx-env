@@ -1,0 +1,19 @@
+version: '2'
+services:
+  hbase:
+    image: amk/lmx:env
+    container_name: lmx-env
+    environment:
+      - SITE_DIR_NAME=lmx
+    volumes:
+      - ./lmxdata:/lmx
+    ports:
+      - 8000:8000
+    tty: true
+    networks:
+      - lmxnet
+    mem_limit: 1024M
+
+networks:
+  lmxnet:
+    driver: bridge
