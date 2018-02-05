@@ -4,8 +4,6 @@ LABEL "rating"="Five Stars" "class"="First Class" "maintainer"="Antonio Prado <a
 
 USER root
 RUN mkdir /lmx
-ADD maven.tar.gz /
-ADD instalar-maven.sh /
 #ADD docker-entrypoint.sh /lmx
 
 RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list \
