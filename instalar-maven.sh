@@ -35,7 +35,7 @@ GROUP_EXISTS=`grep -c "$GRUPO" /etc/group`
 if [ $GROUP_EXISTS -eq 0 ]
 then
     echo "El grupo ${GRUPO} (ID: ${ID_GRUPO}) no existe y será creado."
-    groupadd --gid $ID_GRUPO $GRUPO
+    sudo groupadd --gid $ID_GRUPO $GRUPO
 
     if [ "$?" -ne 0 ]; then
         echo "Error al crear el grupo ${GRUPO} [ID=${ID_GRUPO}]"
@@ -50,7 +50,7 @@ BELONGS_TO_GROUP=`grep "$GRUPO" /etc/group | grep -c "$USUARIO"`
 if [ $BELONGS_TO_GROUP -eq 0 ]
 then
     echo "Se asignará el usuario ${USUARIO} al grupo ${GRUPO}"
-    usermod -a -G $GRUPO $USUARIO
+    sudo usermod -a -G $GRUPO $USUARIO
 
     if [ "$?" -ne 0 ]; then
         echo "Error al asignar el usuario ${USUARIO} al grupo ${GRUPO}"
@@ -63,20 +63,20 @@ fi
 if [ ! -d "$MAVEN_PARENT" ]
 then
     echo "Se creará el directorio \"MAVEN_PARENT\". Ruta: ${MAVEN_PARENT}"
-    mkdir $MAVEN_PARENT
+    sudo mkdir $MAVEN_PARENT
 
     if [ "$?" -ne 0 ]; then
         echo "Error al crear el directorio \"MAVEN_PARENT\" [ruta = ${MAVEN_PARENT}]"
         exit -1
     fi
 
-    chown -R root:$GRUPO $MAVEN_PARENT
+    sudo chown -R root:$GRUPO $MAVEN_PARENT
     if [ "$?" -ne 0 ]; then
         echo "Error al asignar el directorio ${MAVEN_PARENT} al grupo ${GRUPO}"
         exit -1
     fi
 
-    chmod -R 775 $MAVEN_PARENT
+    sudo chmod -R 775 $MAVEN_PARENT
     if [ "$?" -ne 0 ]; then
         echo "Error al asignar permisos al directorio ${MAVEN_PARENT}"
         exit -1
@@ -86,9 +86,9 @@ else
     echo "El directorio \"MAVEN_PARENT\" ya existe. Ruta: ${MAVEN_PARENT}"
 fi
 
-tar -xvf $GRUPO/$INSTALLER
-mv $MAVEN $MAVEN_PARENT/
-chown -R $USUARIO:$GRUPO $MAVEN_HOME
+sudo tar -xvf $GRUPO/$INSTALLER
+sudo mv $MAVEN $MAVEN_PARENT/
+sudo chown -R $USUARIO:$GRUPO $MAVEN_HOME
 
 echo "MAVEN_HOME = ${MAVEN_HOME}"
 
