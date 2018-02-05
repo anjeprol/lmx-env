@@ -16,6 +16,8 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | te
     && /bin/echo /usr/bin/debconf shared/accepted-oracle-license-v1-1 seen true  | /usr/bin/debconf-set-selections \
     && apt-get update \
     && apt-get install -y git \
+    && apt-cache search maven \
+    && apt-get install -y maven \
     && apt-get install -y oracle-java8-installer oracle-java8-unlimited-jce-policy oracle-java8-set-default \
 
 
