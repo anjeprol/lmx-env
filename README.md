@@ -7,10 +7,9 @@
 * [`Build the image`](#build-the-image)
 * [`Command to start container`](#command-to-start-container)
 * [`Once you are inside the container execute the next command line`](#once-you-are-inside-the-container-execute-the-next-command-line)
-* [`Entry point`](#entry-points)
-* [`Folder to pull the git projects`](#Folder-to-pull-the-git-projects)
-* [`Maven version`](#Maven-version)
-* [`Java Version`](#Java-Version)
+* [`Folder to pull the git projects`](#folder-to-pull-the-git-projects)
+* [`Maven version`](#maven-version)
+* [`Java Version`](#java-Version)
 
 ### Docker configuration
 Java 8 and Maven
@@ -55,11 +54,6 @@ docker-compose up -d mvncont
 ### command to access the container
 ```yaml
 docker exec -it repos-maven /bin/bash
-```
-
-### once you are inside the container execute the next command line
-```shell 
-./docker-entrypoint.sh
 ```
 
 ### entry points
