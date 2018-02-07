@@ -2,10 +2,15 @@
 
 ## INDEX
 
-* [`Dockerfile`](#docker-configuratio)
-
-
-
+* [`Dockerfile`](#docker-configuration)
+* [`docker-compose`](#docker-compose)
+* [`Build the image`](#build-the-image)
+* [`Command to start container`](#command-to-start-container)
+* [`Once you are inside the container execute the next command line`](#once-you-are-inside-the-container-execute-the-next-command-line)
+* [`Entry point`](#entry-points)
+* [`Folder to pull the git projects`](#Folder-to-pull-the-git-projects)
+* [`Maven version`](#Maven-version)
+* [`Java Version`](#Java-Version)
 
 ### Docker configuration
 Java 8 and Maven
@@ -52,7 +57,7 @@ docker-compose up -d mvncont
 docker exec -it repos-maven /bin/bash
 ```
 
-### once you are inside the container, execute the next command line
+### once you are inside the container execute the next command line
 ```shell 
 ./docker-entrypoint.sh
 ```
@@ -67,6 +72,9 @@ chmod ugo+w $SITE_DIR_NAME
 mv ./settings.xml /etc/maven/
 export MAVEN_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 ```
+
+### Folder to pull the git projects
+> `reposdata` Here is where you need to download your project to build with maven.
 
 ### Maven version
 ```shell
