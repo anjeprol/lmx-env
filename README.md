@@ -24,3 +24,8 @@ To start the container
 ```docker
 docker-compose up -d mvncont
 ```
+
+### command to access the container
+```yaml
+docker exec -it repos-maven /bin/bash
+```
