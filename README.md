@@ -16,11 +16,11 @@ Basic configuration to start the container.
 ### build the image
 To build the image
 ```docker
-docker build -t amk/lmx .
+docker build -t amk/maven .
 ```
 
 ### command to start container
 To start the container
 ```docker
-docker-compose up -d lmxserv
+docker-compose up -d mvncont
 ```

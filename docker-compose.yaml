@@ -1,19 +1,19 @@
 version: '2'
 services:
-  lmxserv:
-    image: amk/lmx
-    container_name: lmx-env
+  mvncont:
+    image: amk/maven
+    container_name: repos-maven
     environment:
-      - SITE_DIR_NAME=lmx
+      - SITE_DIR_NAME=repos
     volumes:
-      - ./lmxdata:/lmx
+      - ./reposdata:/repos
     ports:
       - 8000:8000
     tty: true
     networks:
-      - lmxnet
+      - reposnet
     mem_limit: 1024M
 
 networks:
-  lmxnet:
+  reposnet:
     driver: bridge

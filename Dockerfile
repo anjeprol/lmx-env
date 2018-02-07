@@ -2,9 +2,10 @@ FROM ubuntu:16.04
 
 LABEL "rating"="Five Stars" "class"="First Class" "maintainer"="Antonio Prado <antonio.prado@amk-technologies.com>"
 
-USER root
-RUN mkdir /lmx
-#ADD docker-entrypoint.sh /lmx
+
+RUN mkdir /repos
+ADD ./settings.xml /
+ADD ./docker-entrypoint.sh /
 
 RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list \
     && echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list \
@@ -18,5 +19,4 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | te
     && apt-get install -y maven \
     && apt-get install -y oracle-java8-installer oracle-java8-unlimited-jce-policy oracle-java8-set-default \
 
-
-#ENTRYPOINT ["/docker-entrypoint.sh"]
+#ENTRYPOINT ["docker-entrypoint.sh"]
