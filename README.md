@@ -67,3 +67,20 @@ chmod ugo+w $SITE_DIR_NAME
 mv ./settings.xml /etc/maven/
 export MAVEN_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 ```
+
+### Maven version
+```shell
+Apache Maven 3.3.9
+Maven home: /usr/share/maven
+Java version: 1.8.0_161, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "4.13.0-32-generic", arch: "amd64", family: "unix"
+```
+
+## Java Version
+```shell
+java version "1.8.0_161"
+Java(TM) SE Runtime Environment (build 1.8.0_161-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)
+```
